@@ -139,6 +139,7 @@ body {
   align-items: center;
   justify-content: center;
   background: url("poster2.jpeg");
+  /* background: rgb(51, 55, 70); */
   background-position: center;
   background-size: cover;
   backdrop-filter: blur(50px);
@@ -192,7 +193,7 @@ p {
 header {
   height: 35px;
   width: 73%;
-  max-width: 1050px;
+  max-width: 950px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -405,7 +406,7 @@ span {
 /* Breakpoint smaller */
 /* ############## */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 950px) {
   body {
     background: rgb(51, 55, 70);
     height: 1350px;
@@ -413,6 +414,10 @@ span {
 
   header {
     margin: 0;
+  }
+
+  p {
+    font-size: 16px;
   }
 
   .user {
@@ -428,16 +433,16 @@ span {
   }
 
   .left {
-    width: 100%;
+    width: 90%;
     height: 50%;
   }
 
-  /* .posterPic {
-    min-height: 600px;
-  } */
+  .posterPic {
+    background-position: top;
+  }
 
   .right {
     height: 50%;
-    width: 100%;
+    width: 90%;
   }
 }
