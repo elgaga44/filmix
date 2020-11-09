@@ -433,7 +433,7 @@ span {
   }
 
   .left {
-    width: 90%;
+    width: 100%;
     height: 50%;
   }
 
@@ -443,6 +443,6 @@ span {
 
   .right {
     height: 50%;
-    width: 90%;
+    width: 100%;
   }
 }
