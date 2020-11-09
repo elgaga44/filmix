@@ -426,7 +426,7 @@ span {
 
   .card {
     /* background: blue; */
-    width: 85%;
+    width: 90%;
     height: 95%;
     flex-direction: column;
     justify-content: flex-start;
