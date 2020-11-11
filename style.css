@@ -127,9 +127,9 @@ table {
 }
 
 /* Body */
-body,
-html {
-  height: 100%;
+html,
+body {
+  min-height: 100vh;
 }
 
 body {
@@ -139,7 +139,6 @@ body {
   align-items: center;
   justify-content: center;
   background: url("poster2.jpeg");
-  /* background: rgb(51, 55, 70); */
   background-position: center;
   background-size: cover;
   backdrop-filter: blur(50px);
@@ -198,6 +197,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
@@ -207,10 +207,6 @@ header {
   font-weight: 600;
   letter-spacing: 2px;
   font-size: 30px;
-}
-
-span {
-  color: #f8636c;
 }
 
 .user {
@@ -258,39 +254,35 @@ span {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  height: 550px;
-  width: 1000px;
+  /* height: 550px; */
+  max-width: 1000px;
   background: rgb(51, 55, 70, 0.95);
   border-radius: 20px;
   text-align: center;
   color: white;
+  padding: 50px 35px;
+  margin-bottom: 35px;
 }
-
-/* .wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 95%;
-  width: 95%;
-} */
 
 /* ################## */
 /* Left part */
 /* ################## */
 
 .left {
-  height: 90%;
-  width: 33%;
+  /* height: 90%; */
+  width: 35%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .posterPic {
-  height: 80%;
-  width: 90%;
+  /* height: 80%;
+  width: 90%; */
+  display: block;
+  width: 300px;
+  height: 450px;
   border-radius: 15px;
   background: pink;
   background: url(poster2.jpeg) center/cover;
@@ -298,11 +290,12 @@ span {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin-bottom: 20px;
 }
 
 .posterButtons {
-  height: 7%;
-  width: 90%;
+  height: 35px;
+  width: 300px;
   text-transform: uppercase;
   color: white;
   letter-spacing: 1px;
@@ -346,12 +339,12 @@ span {
 /* ################## */
 
 .right {
-  height: 90%;
-  width: 53%;
+  /* height: 90%; */
+  width: 60%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .details {
@@ -360,10 +353,7 @@ span {
   border-radius: 15px;
   color: white;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  /* padding: 3%; */
+  margin-bottom: 20px;
 }
 
 .content {
@@ -375,6 +365,7 @@ span {
   background-color: transparent;
   text-align: left;
   margin-left: 25px;
+  margin-bottom: 25px;
 }
 
 .ratings_streaming {
@@ -388,12 +379,31 @@ span {
   background-color: #3f4456;
   border-radius: 15px;
   width: 36%;
+  margin-bottom: 0;
+}
+
+.imdb {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.imdb p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.imdbLogo {
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 .filmStreaming {
   background-color: #3f4456;
   border-radius: 15px;
   width: 60%;
+  margin-bottom: 0;
 }
 
 .svod {
@@ -402,22 +412,22 @@ span {
   border-radius: 10px;
 }
 
-/* ############## */
-/* Breakpoint smaller */
-/* ############## */
-
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 850px) {
   body {
     background: rgb(51, 55, 70);
-    min-height: 1350px;
   }
 
   header {
-    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 0;
   }
 
   p {
     font-size: 15px;
+  }
+
+  span {
+    color: #f8636c;
   }
 
   .user {
@@ -425,24 +435,18 @@ span {
   }
 
   .card {
-    /* background: blue; */
-    width: 90%;
-    height: 95%;
     flex-direction: column;
     justify-content: flex-start;
+    margin-bottom: 0;
   }
 
   .left {
     width: 100%;
-    height: 55%;
-  }
-
-  .posterPic {
-    background-position: top;
+    margin-bottom: 25px;
+    justify-content: flex-start;
   }
 
   .right {
-    height: 45%;
     width: 100%;
   }
 }
