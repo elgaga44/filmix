@@ -455,6 +455,10 @@ header {
     color: #f8636c;
   }
 
+  .background {
+    filter: blur(10px) brightness(25%);
+  }
+
   .menu {
     font-size: 50px;
   }
@@ -468,12 +472,17 @@ header {
     justify-content: flex-start;
     margin-bottom: 0;
     padding: 20px 35px;
+    background: transparent;
   }
 
   .left {
     width: 100%;
     margin-bottom: 25px;
     justify-content: flex-start;
+  }
+
+  .imdbLogo {
+    height: 20px;
   }
 
   .right {
