@@ -84,8 +84,8 @@ function changeFilm() {
   overview.innerHTML = `${movies[randomFilm].overview}`;
   casting.innerHTML = `${movies[randomFilm].casting}`;
   score.innerHTML = `${movies[randomFilm].score}/10`;
-  body.style.background = `url('${movies[randomFilm].poster}')`;
-  body.style.backgroundPosition = "center";
+  body.style.background = `url('${movies[randomFilm].poster}') center/cover`;
+  // body.style.backgroundPosition = "center";
   randomFilm = random();
 }
 
