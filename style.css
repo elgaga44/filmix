@@ -426,12 +426,12 @@ header {
 
 @media only screen and (max-width: 850px) {
   body {
-    background: rgb(51, 55, 70);
+    background: rgb(51, 55, 70) !important;
   }
 
   header {
     margin-top: 15px;
-    margin-bottom: 0;
+    justify-content: center;
   }
 
   p {
@@ -442,6 +442,10 @@ header {
     color: #f8636c;
   }
 
+  .menu {
+    font-size: 50px;
+  }
+
   .user {
     display: none;
   }
@@ -450,6 +454,7 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 0;
+    padding: 20px 35px;
   }
 
   .left {
