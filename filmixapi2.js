@@ -6,15 +6,7 @@ const change = document.querySelector(".anotherFilm");
 
 let poster = document.querySelector(".posterPic");
 
-let trailer = document.querySelector(".filmTrailer");
-
 let title = document.querySelector(".filmTitle");
-
-let date = document.querySelector(".filmDate");
-
-let genre = document.querySelector(".filmGenre");
-
-let duration = document.querySelector(".filmLength");
 
 let director = document.querySelector(".filmDirector");
 
@@ -46,11 +38,27 @@ let getTop = getTopFilm();
 let topFilms = {};
 let randomMovie = "";
 
+let getDetails = getFilmDetails();
+let filmDetails = {};
+
+let getCasting = getFilmCasting();
+let wholeCasting = {};
+let filmCasting = [];
+
+getAll();
+
+function getAll() {
+  getTopFilm();
+  getFilmDetails();
+  getFilmCasting();
+  movieDirector();
+}
+
 // with
 
 function getTopFilm() {
   theMovieDb.movies.getTopRated(
-    { page: Math.floor(Math.random() * 20) + 1 },
+    { page: Math.floor(Math.random() * 100) + 1 },
     successCBTop,
     errorCBTop
   );
@@ -69,26 +77,15 @@ function errorCBTop(data) {
 // Get this movie details
 // #################################
 
-let getDetails = getFilmDetails();
-let filmDetails = {};
-let filmGenres = [];
-
 // with
 
 function getFilmDetails() {
-  if (randomMovie === "") {
-    theMovieDb.movies.getById({ id: 11 }, successCB, errorCB);
-  } else {
-    theMovieDb.movies.getById({ id: randomMovie }, successCB, errorCB);
-  }
+  theMovieDb.movies.getById({ id: randomMovie }, successCB, errorCB);
 }
 
 function successCB(data) {
   console.log(data);
   filmDetails = JSON.parse(data);
-  for (let index = 0; index < 3; index++) {
-    filmGenres.push(filmDetails.genres[index].name);
-  }
 }
 
 function errorCB(data) {
@@ -107,22 +104,14 @@ function synopsis() {
 // Get this movie casting
 // #################################
 
-let getCasting = getFilmCasting();
-let wholeCasting = {};
-let filmCasting = [];
-
 // with
 
 function getFilmCasting() {
-  if (randomMovie === "") {
-    theMovieDb.movies.getCredits({ id: 11 }, successCBCasting, errorCBCasting);
-  } else {
-    theMovieDb.movies.getCredits(
-      { id: randomMovie },
-      successCBCasting,
-      errorCBCasting
-    );
-  }
+  theMovieDb.movies.getCredits(
+    { id: randomMovie },
+    successCBCasting,
+    errorCBCasting
+  );
 }
 
 function successCBCasting(data) {
@@ -152,39 +141,6 @@ function movieDirector() {
   }
 }
 
-// #################################
-// Get this movie trailer
-// #################################
-
-let getTrailer = getFilmTrailer();
-let allVideos = {};
-let filmTrailer = "";
-
-function getFilmTrailer() {
-  if (randomMovie === "") {
-    theMovieDb.movies.getVideos({ id: 11 }, successCBTrailer, errorCBTrailer);
-  } else {
-    theMovieDb.movies.getVideos(
-      { id: randomMovie },
-      successCBTrailer,
-      errorCBTrailer
-    );
-  }
-}
-
-function successCBTrailer(data) {
-  allVideos = JSON.parse(data);
-  for (let index = 0; index < allVideos.results.length; index++) {
-    if (allVideos.results[index].type == "Trailer") {
-      filmTrailer = allVideos.results[index].key;
-    }
-  }
-}
-
-function errorCBTrailer(data) {
-  console.log("Error callback: " + data);
-}
-
 // // #################################
 // // Launch
 // // #################################
@@ -205,38 +161,19 @@ function errorCBTrailer(data) {
 
 let newFilm = change.addEventListener("click", changeFilm);
 
-// With...
-
 function changeFilm() {
-  // Add new film
   poster.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
-
-  trailer.href = `https://www.youtube.com/watch?v=${filmTrailer}`;
-
+  //   body.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
   title.innerHTML = `${filmDetails.title}`;
-
-  date.innerHTML = `${filmDetails.release_date.slice(0, 4)}`;
-
-  genre.innerHTML = `${filmGenres.join(", ")}`;
-
-  duration.innerHTML = `${filmDetails.runtime} min`;
-
   director.innerHTML = `Director: ${movieDirector()}`;
-
   overview.innerHTML = `${synopsis()}`;
-
   casting.innerHTML = `${filmCasting.join(", ")}`;
-
   score.innerHTML = `${filmDetails.vote_average}/10`;
-
   background.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.backdrop_path}') center/cover`;
 
-  //   Reset everything
   randomID = random();
 
   filmCasting = [];
-
-  filmGenres = [];
 
   getTop = getTopFilm();
 
@@ -245,6 +182,4 @@ function changeFilm() {
   getCasting = getFilmCasting();
 
   getDirector = movieDirector();
-
-  getTrailer = getFilmTrailer();
 }

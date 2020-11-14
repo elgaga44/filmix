@@ -7,11 +7,16 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <script src="themoviedb.js"></script>
     <title>FILMIX</title>
   </head>
@@ -32,8 +37,8 @@
         <!-- <img src="" alt="Film Poster" class="posterPic" /> -->
         <div class="posterPic"></div>
         <div class="posterButtons">
-          <a href="#" class="teaser">
-            <i class="material-icons md-12"> play_circle_outline </i>Teaser
+          <a href="#" target="_blank" class="filmTrailer">
+            <i class="material-icons md-12"> play_circle_outline </i>Trailer
           </a>
           <a class="anotherFilm">
             <i class="material-icons md-12"> shuffle </i>Change
@@ -42,7 +47,14 @@
       </div>
       <div class="right">
         <div class="filmTitre">
-          <h1 class="filmTitle">Blade Runner 2049</h1>
+          <h1 class="filmTitle">Blade Runner 2049</h1> 
+          <div class="filmInfo">
+            <h4 class="filmDate">2018</h4>
+            <h4 class="dot">•</h4>
+            <h4 class="filmGenre">Science-Fiction, Drama</h4>
+            <h4 class="dot">•</h4>
+            <h4 class="filmLength">2h44</h4>
+          </div>
           <h2 class="filmDirector">Director: Denis Villeneuve</h2>
         </div>
         <div class="details">
@@ -78,7 +90,8 @@
           </div>
           <div class="details filmStreaming">
             <div class="content">
-              <h3>Streaming</h3>
+              <h3>Streaming Availability</h3>
+              <p>Feature coming soon!</p>
               <img src="netflix.jpeg" alt="Netflix" class="svod netflix" />
               <img src="disney.jpeg" alt="Disney" class="svod disney" />
               <img src="canal.jpeg" alt="Canal" class="svod canal" />
