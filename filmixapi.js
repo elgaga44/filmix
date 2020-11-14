@@ -18,6 +18,8 @@ let score = document.querySelector(".imdbRating");
 
 let background = document.querySelector(".background");
 
+let body = document.querySelector("body");
+
 // #################################
 // Get random ID
 // #################################
@@ -40,7 +42,7 @@ let randomMovie = "";
 
 function getTopFilm() {
   theMovieDb.movies.getTopRated(
-    { page: Math.floor(Math.random() * 5) + 1 },
+    { page: Math.floor(Math.random() * 100) + 1 },
     successCBTop,
     errorCBTop
   );
@@ -56,7 +58,7 @@ function errorCBTop(data) {
 }
 
 // #################################
-// Get random movie details
+// Get this movie details
 // #################################
 
 let getDetails = getFilmDetails();
@@ -81,8 +83,16 @@ function errorCB(data) {
   console.log("Error callback: " + data);
 }
 
+function synopsis() {
+  if (filmDetails.overview.length > 300) {
+    return `${filmDetails.overview.slice(0, 300)} [...]`;
+  } else {
+    return `${filmDetails.overview}`;
+  }
+}
+
 // #################################
-// Get random movie casting
+// Get this movie casting
 // #################################
 
 let getCasting = getFilmCasting();
@@ -114,6 +124,22 @@ function errorCBCasting(data) {
   console.log("Error callback: " + data);
 }
 
+// #################################
+// Get this movie director
+// #################################
+
+function movieDirector() {
+  if (wholeCasting == {}) {
+    return (filmDirector = "George Lucas");
+  } else {
+    for (let index = 0; index < wholeCasting.crew.length; index++) {
+      if (wholeCasting.crew[index].job == "Director") {
+        return wholeCasting.crew[index].name;
+      }
+    }
+  }
+}
+
 // // #################################
 // // Launch
 // // #################################
@@ -136,9 +162,10 @@ let newFilm = change.addEventListener("click", changeFilm);
 
 function changeFilm() {
   poster.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
+  //   body.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
   title.innerHTML = `${filmDetails.title}`;
-  // director.innerHTML = `Director: ${film[randomFilm].director}`;
-  overview.innerHTML = `${filmDetails.overview}`;
+  director.innerHTML = `Director: ${movieDirector()}`;
+  overview.innerHTML = `${synopsis()}`;
   casting.innerHTML = `${filmCasting.join(", ")}`;
   score.innerHTML = `${filmDetails.vote_average}/10`;
   background.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.backdrop_path}') center/cover`;
@@ -152,4 +179,6 @@ function changeFilm() {
   getDetails = getFilmDetails();
 
   getCasting = getFilmCasting();
+
+  getDirector = movieDirector();
 }

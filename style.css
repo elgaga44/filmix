@@ -138,10 +138,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background:  rgb(51, 55, 70);
+  background: black;
   /* background-size: cover;
   backdrop-filter: blur(50px); */ */
-  transition: 1s ease;
+  transition: background 2s ease-in-out;
   /* animation: animation 70s linear infinite; */
 }
 
@@ -153,7 +153,7 @@ body {
   background-size: cover;
   filter: blur(10px) brightness(50%);
   z-index: 1;
-  transition: 1s ease;
+  transition: background 2s ease-in-out;
 }
 
 /* @keyframes animation {
@@ -163,7 +163,10 @@ body {
 } */
 
 h1 {
-  color: #f8636c;
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   font-style: italic;
   font-weight: 900;
@@ -194,6 +197,7 @@ p {
   letter-spacing: 5%;
   font-weight: 200;
   line-height: normal;
+  transition: 1s ease-in-out;
 }
 
 /* ################## */
@@ -203,14 +207,25 @@ p {
 header {
   z-index: 9999;
   height: 35px;
-  width: 73%;
-  max-width: 950px;
+  width: 90%;
+  max-width: 1000px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
 }
 
 .menu {
@@ -245,11 +260,12 @@ header {
   justify-content: center;
   color: white;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .signUp {
-  background-color: #f8636c;
-  border: solid 1px #f8636c;
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
   border-radius: 5px;
   height: 100%;
   width: 100px;
@@ -269,11 +285,11 @@ header {
   z-index: 9999;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   /* height: 550px; */
   max-width: 1000px;
-  background: rgb(51, 55, 70, 0.7);
+  background: rgb(20, 20, 20, 0.7);
   border-radius: 20px;
   text-align: center;
   color: white;
@@ -293,11 +309,10 @@ header {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-right: 15px;
 }
 
 .posterPic {
-  /* height: 80%;
-  width: 90%; */
   display: block;
   width: 300px;
   height: 450px;
@@ -308,11 +323,11 @@ header {
   -o-background-size: cover;
   background-size: cover;
   margin-bottom: 20px;
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .posterButtons {
-  height: 35px;
+  height: 40px;
   width: 300px;
   text-transform: uppercase;
   color: white;
@@ -335,11 +350,12 @@ header {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .anotherFilm {
-  background-color: #f8636c;
-  border: solid 1px #f8636c;
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
   border-radius: 5px;
   height: 100%;
   width: 45%;
@@ -372,12 +388,12 @@ header {
 
 .details {
   width: 100%;
-  background-color: #3f4456;
+  background-color:rgb(30, 30, 30, 0.8);
   border-radius: 15px;
   color: white;
   text-align: left;
   margin-bottom: 20px;
-  transition: 1s ease;
+  transition: 1s ease-in-out;
 }
 
 .content {
@@ -401,7 +417,7 @@ header {
 }
 
 .filmRatings {
-  background-color: #3f4456;
+  background-color: rgb(30, 30, 30, 0.8);
   border-radius: 15px;
   width: 36%;
   margin-bottom: 0;
@@ -425,7 +441,7 @@ header {
 }
 
 .filmStreaming {
-  background-color: #3f4456;
+  background-color: rgb(30, 30, 30, 0.8);
   border-radius: 15px;
   width: 60%;
   margin-bottom: 0;
@@ -439,11 +455,11 @@ header {
 
 @media only screen and (max-width: 850px) {
   body {
-    background: rgb(51, 55, 70) !important;
+    background: black !important;
   }
 
   header {
-    margin-top: 15px;
+    margin-top: 25px;
     justify-content: center;
   }
 
@@ -451,16 +467,23 @@ header {
     font-size: 15px;
   }
 
-  span {
-    color: #f8636c;
-  }
+  /* span {
+    background: rgb(34,193,195);
+    background: linear-gradient(123deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } */
 
   .background {
     filter: blur(10px) brightness(25%);
   }
 
+  .logo {
+    height: 45px;
+  }
+
   .menu {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .user {
@@ -471,7 +494,7 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 0;
-    padding: 20px 35px;
+    padding: 10px 35px 35px;
     background: transparent;
   }
 
@@ -479,13 +502,19 @@ header {
     width: 100%;
     margin-bottom: 25px;
     justify-content: flex-start;
+    margin-right: 0px;
+  }
+
+  .right {
+    width: 100%;
   }
 
   .imdbLogo {
     height: 20px;
   }
 
-  .right {
-    width: 100%;
+  .details {
+  background: rgb(20, 20, 20, 0.7);
   }
+
 }
