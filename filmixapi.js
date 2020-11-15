@@ -28,6 +28,8 @@ let background = document.querySelector(".background");
 
 let body = document.querySelector("body");
 
+let right = document.querySelector(".right");
+
 // #################################
 // Get random ID
 // #################################
@@ -86,7 +88,7 @@ function getFilmDetails() {
 function successCB(data) {
   console.log(data);
   filmDetails = JSON.parse(data);
-  for (let index = 0; index < 3; index++) {
+  for (let index = 0; index < 2; index++) {
     filmGenres.push(filmDetails.genres[index].name);
   }
 }
@@ -95,12 +97,59 @@ function errorCB(data) {
   console.log("Error callback: " + data);
 }
 
-function synopsis() {
+// Get this movie overview
+
+function movieSynopsis() {
   if (filmDetails.overview.length > 300) {
     return `${filmDetails.overview.slice(0, 300)} [...]`;
   } else {
     return `${filmDetails.overview}`;
   }
+}
+
+// Get this movie title
+
+function movieTitle() {
+  if (filmDetails.title.length > 25) {
+    title.style.fontSize = "35px";
+    return filmDetails.title;
+  } else {
+    title.style.fontSize = "40px";
+    return filmDetails.title;
+  }
+}
+
+// #################################
+// Get this movie trailer
+// #################################
+
+let getTrailer = getFilmTrailer();
+let allVideos = {};
+let filmTrailer = "";
+
+function getFilmTrailer() {
+  if (randomMovie === "") {
+    theMovieDb.movies.getVideos({ id: 11 }, successCBTrailer, errorCBTrailer);
+  } else {
+    theMovieDb.movies.getVideos(
+      { id: randomMovie },
+      successCBTrailer,
+      errorCBTrailer
+    );
+  }
+}
+
+function successCBTrailer(data) {
+  allVideos = JSON.parse(data);
+  for (let index = 0; index < allVideos.results.length; index++) {
+    if (allVideos.results[index].type == "Trailer") {
+      filmTrailer = allVideos.results[index].key;
+    }
+  }
+}
+
+function errorCBTrailer(data) {
+  console.log("Error callback: " + data);
 }
 
 // #################################
@@ -153,67 +202,57 @@ function movieDirector() {
 }
 
 // #################################
-// Get this movie trailer
+// Launch page
 // #################################
 
-let getTrailer = getFilmTrailer();
-let allVideos = {};
-let filmTrailer = "";
+window.addEventListener("load", startFilm);
 
-function getFilmTrailer() {
-  if (randomMovie === "") {
-    theMovieDb.movies.getVideos({ id: 11 }, successCBTrailer, errorCBTrailer);
-  } else {
-    theMovieDb.movies.getVideos(
-      { id: randomMovie },
-      successCBTrailer,
-      errorCBTrailer
-    );
-  }
+// With...
+
+function startFilm() {
+  //   Preload first film
+  randomID = random();
+
+  filmCasting = [];
+
+  filmGenres = [];
+
+  getTop = getTopFilm();
+
+  getDetails = getFilmDetails();
+
+  getCasting = getFilmCasting();
+
+  getDirector = movieDirector();
+
+  getTrailer = getFilmTrailer();
 }
-
-function successCBTrailer(data) {
-  allVideos = JSON.parse(data);
-  for (let index = 0; index < allVideos.results.length; index++) {
-    if (allVideos.results[index].type == "Trailer") {
-      filmTrailer = allVideos.results[index].key;
-    }
-  }
-}
-
-function errorCBTrailer(data) {
-  console.log("Error callback: " + data);
-}
-
-// // #################################
-// // Launch
-// // #################################
-
-// randomID = random();
-
-// filmCasting = [];
-
-// getTop = getTopFilm();
-
-// getDetails = getFilmDetails();
-
-// getCasting = getFilmCasting();
 
 // #################################
 // Change film
 // #################################
 
-let newFilm = change.addEventListener("click", changeFilm);
+change.addEventListener("click", changeFilm);
+
+window.addEventListener("keydown", function (e) {
+  switch (e.code) {
+    case "Space":
+      changeFilm();
+  }
+});
 
 // With...
 
 function changeFilm() {
+  // Activate right part
+  right.style.display = "flex";
+
   // Add new film
   poster.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
 
   trailer.href = `https://www.youtube.com/watch?v=${filmTrailer}`;
 
-  title.innerHTML = `${filmDetails.title}`;
+  title.innerHTML = `${movieTitle()}`;
 
   date.innerHTML = `${filmDetails.release_date.slice(0, 4)}`;
 
@@ -223,7 +262,7 @@ function changeFilm() {
 
   director.innerHTML = `Director: ${movieDirector()}`;
 
-  overview.innerHTML = `${synopsis()}`;
+  overview.innerHTML = `${movieSynopsis()}`;
 
   casting.innerHTML = `${filmCasting.join(", ")}`;
 
