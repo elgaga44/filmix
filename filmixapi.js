@@ -4,31 +4,63 @@
 
 const change = document.querySelector(".anotherFilm");
 
-let poster = document.querySelector(".posterPic");
+const poster = document.querySelector(".posterPic");
 
-let trailer = document.querySelector(".filmTrailer");
+const trailer = document.querySelector(".filmTrailer");
 
-let title = document.querySelector(".filmTitle");
+const title = document.querySelector(".filmTitle");
 
-let date = document.querySelector(".filmDate");
+const date = document.querySelector(".filmDate");
 
-let genre = document.querySelector(".filmGenre");
+const genre = document.querySelector(".filmGenre");
 
-let duration = document.querySelector(".filmLength");
+const duration = document.querySelector(".filmLength");
 
-let director = document.querySelector(".filmDirector");
+const director = document.querySelector(".filmDirector");
 
-let overview = document.querySelector(".filmOverview");
+const overview = document.querySelector(".filmOverview");
 
-let casting = document.querySelector(".filmCasting");
+const casting = document.querySelector(".filmCasting");
 
-let score = document.querySelector(".imdbRating");
+const score = document.querySelector(".imdbRating");
 
-let background = document.querySelector(".background");
+const background = document.querySelector(".background");
 
-let body = document.querySelector("body");
+const body = document.querySelector("body");
 
-let right = document.querySelector(".right");
+const card = document.querySelector(".card");
+
+const bulb = document.querySelector(".bulb");
+
+const details = document.querySelectorAll(".details");
+
+const menu = document.querySelector(".menu");
+
+// #################################
+// Activate/Desactivate Light Mode
+// #################################
+
+bulb.addEventListener("click", function () {
+  console.log("Prout");
+  card.classList.toggle("card-white");
+  trailer.classList.toggle("filmTrailer-white");
+  background.classList.toggle("background-white");
+  menu.classList.toggle("menu-white");
+  bulb.classList.toggle("bulb-white");
+  for (let detail of details) {
+    detail.classList.toggle("details-white");
+  }
+});
+
+// #################################
+// Desactivating Scroll with spacebar
+// #################################
+
+window.addEventListener("keydown", function (e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+});
 
 // #################################
 // Get random ID
@@ -210,6 +242,29 @@ window.addEventListener("load", startFilm);
 // With...
 
 function startFilm() {
+  //   // Add new film
+  //   poster.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
+
+  //   trailer.href = `https://www.youtube.com/watch?v=${filmTrailer}`;
+
+  //   title.innerHTML = `${movieTitle()}`;
+
+  //   date.innerHTML = `${filmDetails.release_date.slice(0, 4)}`;
+
+  //   genre.innerHTML = `${filmGenres.join(", ")}`;
+
+  //   duration.innerHTML = `${filmDetails.runtime} min`;
+
+  //   director.innerHTML = `Director: ${movieDirector()}`;
+
+  //   overview.innerHTML = `${movieSynopsis()}`;
+
+  //   casting.innerHTML = `${filmCasting.join(", ")}`;
+
+  //   score.innerHTML = `${filmDetails.vote_average}/10`;
+
+  //   background.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.backdrop_path}') center/cover`;
+
   //   Preload first film
   randomID = random();
 
@@ -244,9 +299,6 @@ window.addEventListener("keydown", function (e) {
 // With...
 
 function changeFilm() {
-  // Activate right part
-  right.style.display = "flex";
-
   // Add new film
   poster.style.background = `url('https://image.tmdb.org/t/p/w500/${filmDetails.poster_path}') center/cover`;
 
