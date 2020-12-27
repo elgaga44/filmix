@@ -143,8 +143,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   background: #202231;
-  /* background-size: cover;
-  backdrop-filter: blur(50px); */ */
   transition: background 1s ease-in-out;
   /* animation: animation 70s linear infinite; */
   transition: 0.5s ease-in-out;
@@ -394,7 +392,6 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* height: 550px; */
   max-width: 1000px;
   background: #202231;
   border-radius: 25px;
@@ -410,7 +407,6 @@ header {
 
 .startImage {
   max-height: 350px;
-  flex-grow:
 }
 
 
