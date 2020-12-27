@@ -138,6 +138,7 @@ body {
 body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
+  line-height: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

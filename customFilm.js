@@ -184,7 +184,13 @@ function getFilmDetails() {
             for (let index = 0; index < 2; index++) {
               customFilmGenres.push(filmDetails.genres[index].name);
             };
-        
+
+            for (let index = 0; index < customFilmGenres.length; index++) {
+                if (customFilmGenres[index] == "Science Fiction") {
+                    customFilmGenres[index] = "SF";
+                }  
+            }
+            
         }, 
         // Error callback
         function (data) {
