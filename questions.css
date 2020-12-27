@@ -126,7 +126,10 @@ table {
   border-spacing: 0;
 }
 
-/* Body */
+/* ################## */
+/* BODY */
+/* ################## */
+
 html,
 body {
   min-height: 100vh;
@@ -139,24 +142,38 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: black;
+  background: #202231;
   /* background-size: cover;
   backdrop-filter: blur(50px); */ */
   transition: background 1s ease-in-out;
   /* animation: animation 70s linear infinite; */
   transition: 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 550px; */
+  flex-grow: 2;
 }
 
 .background {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: url("background.jpg") center center;
+  /* background-color: #131425; */
+  background: #202231;
   background-size: cover;
-  filter: blur(10px) brightness(30%);
+  /* filter: blur(10px) brightness(30%); */
   z-index: 1;
-  transition: background 0.5s ease-in-out;
-  transition-delay: 250ms;
+  transition: background 0.25s ease-in-out;
+  transition-delay: 500ms;
+  animation: fadein;
+  animation-duration: 1s;
 }
 
 .background-white {
@@ -164,25 +181,20 @@ body {
   filter: none;
 }
 
-/* @keyframes animation {
-  100% {
-    background-position: 0px -2000px;
-  }
-} */
 
 h1 {
-  background: rgb(34,193,195);
+  /* background: rgb(34,193,195);
   background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  font-style: italic;
+  -webkit-text-fill-color: transparent; */
+  color: white;
   font-weight: 900;
   /* font-size: 3.5vw; */
   font-size: 40px;
   letter-spacing: 3px;
   margin-top: 7px;
   margin-bottom: 10px;
+  line-height: normal;
 }
 
 h2 {
@@ -262,7 +274,7 @@ header {
 
 .search {
   display: none;
-  width: 15%;
+  width: 65%;
   height: 100%;
   background: none;
   border: solid 1px white;
@@ -276,7 +288,6 @@ header {
 }
 
 .search:focus {
-  width: 80%;
   border: none;
   color: white;
   background: #1F1F1F;
@@ -336,11 +347,13 @@ header {
 .bulb {
   color: white;
   cursor: pointer;
-  transition: 0.25s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .bulb-white {
   color: #727272;
+  -webkit-transform: rotate(360deg) scale(1.5);
+          transform: rotate(360deg) scale(1.5);
 }
 
 .bulb:hover {
@@ -351,24 +364,285 @@ header {
 }
 
 /* ################## */
+/* Start page */
+/* ################## */
+
+#startH1 {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  text-align: left;
+  line-height: normal;
+}
+
+#startH2 {
+  color: white;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-top: 7px;
+  font-size: 30px;
+  text-align: left;
+  line-height: normal;
+  text-transform: none;
+}
+
+.startPage {
+  z-index: 5000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* height: 550px; */
+  max-width: 1000px;
+  background: #202231;
+  border-radius: 25px;
+  text-align: left;
+  color: white;
+  transition: 0.25s ease-in-out;
+  box-sizing: border-box;
+}
+
+.CTA {
+  width: 50%;
+}
+
+.startImage {
+  max-height: 350px;
+  flex-grow:
+}
+
+
+/* ################## */
+/* Question card */
+/* ################## */
+
+
+.questionCard {
+  z-index: 5000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 550px; */
+  max-width: 900px;
+  background: #202231;
+  border-radius: 25px;
+  text-align: left;
+  color: white;
+  padding: 50px;
+  margin-bottom: 35px;
+  transition: 0.25s ease-in-out;
+  box-sizing: border-box;
+  animation: fadein;
+  animation-duration: 0.5s;
+}
+
+.questionCard2 {
+  z-index: 5000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 550px; */
+  max-width: 900px;
+  background: #202231;
+  /* background: rgb(20, 20, 20, 0.8); */
+  border-radius: 25px;
+  text-align: left;
+  color: white;
+  padding: 50px;
+  margin-bottom: 35px;
+  transition: 0.25s ease-in-out;
+  box-sizing: border-box;
+  animation: fadein;
+  animation-duration: 0.5s;
+}
+
+.questionCard3 {
+  z-index: 5000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 550px; */
+  max-width: 900px;
+  background: #202231;
+  /* background: rgb(20, 20, 20, 0.8); */
+  border-radius: 25px;
+  text-align: left;
+  color: white;
+  padding: 50px;
+  margin-bottom: 35px;
+  transition: 0.25s ease-in-out;
+  box-sizing: border-box;
+  animation: fadein;
+  animation-duration: 0.5s;
+}
+
+.loadingScreen {
+  z-index: 5000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin-bottom: 80px;
+}
+
+.loader {
+  height: 80px;
+  width: 80px;
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0%;
+  }
+
+  25% {
+    opacity: 100%;
+  }
+
+
+  100% {
+    transform: rotate(-360deg);
+    opacity: 0%;
+  }
+}
+
+.question {
+  width: 90%;
+}
+
+#answers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.choice {
+  border: solid 1px white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  width: 350px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  padding: 0px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: 0.25s ease-in-out;
+}
+
+.choice:nth-of-type(2n) {
+  margin-right: 0px;
+}
+
+.tick {
+  opacity: 0%;
+  transition: 0.25s ease-in-out;
+  margin-right: none;
+}
+
+.tickOn {
+  opacity: 100%;
+  color: rgb(93, 201, 93);
+  transform: scale(1.1);
+  margin-right: none;
+}
+
+.choice:hover {
+  border: 1px solid rgb(93, 201, 93);
+  transform: translateY(-3px);
+}
+
+.answerSelected {
+  border: 1px solid rgb(93, 201, 93);
+  /* background: rgb(93, 201, 93); */
+}
+
+.next {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  border-radius: 10px;
+  height: 45px;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 30px;
+  transition: 0.25s ease-in-out;
+}
+
+.next:hover {
+  transform: scale(1.05);
+filter: contrast(130%);
+}
+
+/* ################## */
 /* Film card */
 /* ################## */
 
 .card {
   z-index: 5000;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-evenly;
-  /* height: 550px; */
+  min-height: 600px;
   width: 1000px;
   /* background: black; */
   border-radius: 25px;
   text-align: center;
   color: white;
-  padding: 50px 35px;
-  margin-bottom: 35px;
+  /* padding: 50px 35px; */
+  /* margin-bottom: 35px; */
   transition: 0.25s ease-in-out;
+  animation: fadein;
+  animation-duration: 1s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0%;
+    transform: translateY(20px);
+  }
 }
 
 .card-white {
@@ -395,15 +669,20 @@ header {
   width: 300px;
   height: 450px;
   border-radius: 25px;
-  background: url(poster2.jpeg) center/cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   transition: 0.25s ease-in-out;
-  transition-delay: 250ms;
+  transition-delay: 200ms;
 }
+
+/* .posterPic:hover {
+  transform: scale(1.03);
+  filter: grayscale(100%);
+  cursor: pointer;
+} */
 
 .posterButtons {
   height: 40px;
@@ -433,6 +712,12 @@ header {
   transition: 0.25s ease-in-out;
 }
 
+.filmTrailer:hover {
+  transform: translateY(-5px);
+  color: black;
+  background-color: white;
+}
+
 .filmTrailer-white {
   color: black;
   border: solid 1px black;
@@ -451,11 +736,17 @@ header {
   color: white;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.anotherFilm:hover {
+transform: translateY(-5px);
+filter: contrast(150%);
 }
 
 .material-icons {
   font-size: 24px !important;
-  margin-right: 5%;
+  margin-right: 5px;
 }
 
 /* ################## */
@@ -467,23 +758,21 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   transition: 0.25s ease-in-out;
+  animation: fadein;
+  animation-duration: 1s;
 }
 
-.filmInfo {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-}
-
-.dot {
-  margin: 0px 5px;
+.opaciter {
+  opacity: 0%;
+  animation: fadeout;
+  animation-duration: 0.25s;
 }
 
 .details {
   width: 100%;
-  background-color:rgb(20, 20, 20, 0.7);
+  background-color:#222630bf;
   border-radius: 10px;
   color: white;
   text-align: left;
@@ -498,6 +787,7 @@ header {
 
 .content {
   padding: 20px;
+  max-height: 120px;
   transition: 0.25s ease;
 }
 
@@ -509,17 +799,58 @@ header {
   margin-bottom: 25px;
 }
 
-.ratings_streaming {
-  width: 100%;
+.filmInfo {
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.dot {
+  margin: 0px 5px;
+}
+
+.filmDirector {
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.filmCasting {
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.filmOverview {
+  overflow: scroll;
+  max-height: 80px;
+}
+
+.filmBonus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 100%;
+}
+
+.filmTeaser {
+  width: 55%;
+}
+
+.ytTrailer {
+  border-radius: 15px;
+}
+
+.ratings_streaming {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .filmRatings {
   border-radius: 10px;
-  width: 48%;
-  margin-bottom: 0;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .imdb {
@@ -541,8 +872,8 @@ header {
 
 .filmStreaming {
   border-radius: 10px;
-  width: 48%;
-  margin-bottom: 0;
+  width: 100%;
+  margin-bottom: 0px;
 }
 
 .svod {
@@ -552,9 +883,19 @@ header {
   border-radius: 10px;
 }
 
+
 @media only screen and (max-width: 850px) {
-  body {
-    background: black !important;
+  .CTA {
+    width: 80%;
+  }
+  
+  .startImage {
+    display: none;
+  }
+
+  .background {
+    background: #202231;
+    filter: none;
   }
 
   header {
@@ -593,6 +934,37 @@ header {
     display: none;
   }
 
+  .questionCard {
+    max-width: 600px;
+    padding: 40px 0px;
+    /* background: none; */
+  }
+
+  .questionCard2 {
+    max-width: 600px;
+    padding: 40px 0px;
+    /* background: none; */
+  }
+
+  .questionCard3 {
+    max-width: 600px;
+    padding: 40px 0px;
+    /* background: none; */
+  }
+
+  .question {
+    width: 80%;
+  }
+
+  #answers {
+    width: 90%;
+  }
+
+  .choice {
+    margin-right: 0px;
+  }
+
+
   .card {
     flex-direction: column;
     justify-content: flex-start;
@@ -600,6 +972,7 @@ header {
     padding: 10px 35px 20px;
     background: transparent;
     width: auto;
+    min-height: noned;
   }
 
   .left {
@@ -613,12 +986,53 @@ header {
     width: 100%;
   }
 
+  .content {
+    max-height: none;
+  }
+
+  .filmOverview {
+    max-height: none;
+  }
+
+  .filmBonus {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    width: 100%;
+  }
+  
+  .ratings_streaming {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .filmRatings {
+    border-radius: 10px;
+    width: 48%;
+    margin-bottom: 20px;
+  }
+
+  .filmStreaming {
+    border-radius: 10px;
+    width: 48%;
+    margin-bottom: 20px;
+  }
+
+  .filmTeaser {
+    width: 100%;
+    height: 56.25vw;;
+  }
+  
+  .ytTrailer {
+    border-radius: 15px;
+  }
+
   .imdbLogo {
     height: 20px;
   }
 
-  .details {
-  background: rgb(20, 20, 20, 0.8);
-  }
 
 }

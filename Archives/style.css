@@ -1,0 +1,645 @@
+/* ###########################################*/
+/* CSS RESET*/
+/* ###########################################*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Body */
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: black;
+  /* background-size: cover;
+  backdrop-filter: blur(50px); */ */
+  transition: background 1s ease-in-out;
+  /* animation: animation 70s linear infinite; */
+  transition: 0.5s ease-in-out;
+}
+
+.background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: url("background.jpg") center center;
+  background-size: cover;
+  filter: blur(10px) brightness(30%);
+  z-index: 1;
+  transition: background 0.5s ease-in-out;
+  transition-delay: 250ms;
+}
+
+.background-white {
+  background: white !important;
+  filter: none;
+}
+
+/* @keyframes animation {
+  100% {
+    background-position: 0px -2000px;
+  }
+} */
+
+h1 {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 900;
+  /* font-size: 3.5vw; */
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* font-size: 1vw; */
+  font-size: 14px;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* font-size: 1vw; */
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* font-size: 1vw; */
+  font-size: 14px;
+}
+
+p {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 5%;
+  font-weight: 200;
+  line-height: normal;
+}
+
+/* ################## */
+/* Header */
+/* ################## */
+
+header {
+  z-index: 9999;
+  height: 35px;
+  width: 70%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.menu {
+  font-family: 'Krub', sans-serif;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 30px;
+  transition: 0.25s ease-in-out;
+}
+
+.menu-white {
+  color: black;
+}
+
+.search {
+  display: none;
+  width: 65%;
+  height: 100%;
+  background: none;
+  border: solid 1px white;
+  border-radius: 10px;
+  color: white;
+  padding-left: 10px;
+  font-size: 14px;
+  letter-spacing: 5%;
+  line-height: normal;
+  transition: 0.5s ease-in-out;
+}
+
+.search:focus {
+  border: none;
+  color: white;
+  background: #1F1F1F;
+  outline: none;
+}
+
+.search::placeholder {
+  color: white;
+  padding-left: 10px;
+  font-size: 14px;
+  letter-spacing: 5%;
+  line-height: normal;
+  transition: 0.25s ease-in-out;
+}
+
+.user {
+  display: none;
+  height: 100%;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 13px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login {
+  border: solid 1px white;
+  border-radius: 10px;
+  height: 100%;
+  width: 100px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.signUp {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  border-radius: 10px;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.bulb {
+  color: white;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.bulb-white {
+  color: #727272;
+  -webkit-transform: rotate(360deg) scale(1.5);
+          transform: rotate(360deg) scale(1.5);
+}
+
+.bulb:hover {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ################## */
+/* Film card */
+/* ################## */
+
+.card {
+  z-index: 5000;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  /* height: 550px; */
+  width: 1000px;
+  /* background: black; */
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  padding: 50px 35px;
+  margin-bottom: 35px;
+  transition: 0.25s ease-in-out;
+}
+
+.card-white {
+  color: black;
+}
+
+
+
+/* ################## */
+/* Left part */
+/* ################## */
+
+.left {
+  /* height: 90%; */
+  width: 35%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+  transition: 0.25s ease-in-out;
+}
+
+.posterPic {
+  display: block;
+  width: 300px;
+  height: 450px;
+  border-radius: 25px;
+  background: url(poster2.jpeg) center/cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: 20px;
+  transition: 0.25s ease-in-out;
+  transition-delay: 250ms;
+}
+
+.posterPic:hover {
+  transform: scale(1.03);
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.posterButtons {
+  height: 40px;
+  width: 300px;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filmTrailer {
+  color: white;
+  border: solid 1px white;
+  border-radius: 10px;
+  height: 100%;
+  width: 47%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.25s ease-in-out;
+}
+
+.filmTrailer:hover {
+  transform: translateY(-5px);
+  color: black;
+  background-color: white;
+}
+
+.filmTrailer-white {
+  color: black;
+  border: solid 1px black;
+}
+
+.anotherFilm {
+  background: rgb(34,193,195);
+  background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+  border-radius: 10px;
+  height: 100%;
+  width: 47%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.anotherFilm:hover {
+transform: translateY(-5px);
+filter: contrast(150%);
+}
+
+.material-icons {
+  font-size: 24px !important;
+  margin-right: 5%;
+}
+
+/* ################## */
+/* Right part */
+/* ################## */
+
+.right {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.25s ease-in-out;
+}
+
+.filmInfo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.dot {
+  margin: 0px 5px;
+}
+
+.details {
+  width: 100%;
+  background-color:rgb(20, 20, 20, 0.7);
+  border-radius: 10px;
+  color: white;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.details-white {
+  border: solid 1px #E7E7E9;
+  background: transparent;
+  color: #1F1F1F;
+}
+
+.content {
+  padding: 20px;
+  transition: 0.25s ease;
+}
+
+.filmTitre {
+  width: 100%;
+  background-color: transparent;
+  text-align: left;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.ratings_streaming {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filmRatings {
+  border-radius: 10px;
+  width: 48%;
+  margin-bottom: 0;
+}
+
+.imdb {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.imdb p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.imdbLogo {
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.filmStreaming {
+  border-radius: 10px;
+  width: 48%;
+  margin-bottom: 0;
+}
+
+.svod {
+  display: none;
+  height: 35px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 850px) {
+  body {
+    background: black !important;
+  }
+
+  header {
+    margin-top: 25px;
+    justify-content: center;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  /* span {
+    background: rgb(34,193,195);
+    background: linear-gradient(123deg, rgba(34,193,195,1) 0%, rgba(116,45,253,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } */
+
+  .logo {
+    height: 45px;
+  }
+
+  .menu {
+    font-size: 40px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .user {
+    display: none;
+  }
+
+  .material-icons.bulb {
+    display: none;
+  }
+
+  .card {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding: 10px 35px 20px;
+    background: transparent;
+    width: auto;
+  }
+
+  .left {
+    width: 100%;
+    margin-bottom: 25px;
+    justify-content: flex-start;
+    margin-right: 0px;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .imdbLogo {
+    height: 20px;
+  }
+
+  .details {
+  background: rgb(20, 20, 20, 0.8);
+  }
+
+}

@@ -36,6 +36,8 @@ const details = document.querySelectorAll(".details");
 
 const menu = document.querySelector(".menu");
 
+
+
 // #################################
 // Activate/Desactivate Light Mode
 // #################################
@@ -51,6 +53,7 @@ bulb.addEventListener("click", function () {
     detail.classList.toggle("details-white");
   }
 });
+
 
 // #################################
 // Desactivating Scroll with spacebar
@@ -84,7 +87,7 @@ let randomMovie = "";
 
 function getTopFilm() {
   theMovieDb.movies.getTopRated(
-    { page: Math.floor(Math.random() * 20) + 1 },
+    { page: Math.floor(Math.random() * 50) + 1 },
     successCBTop,
     errorCBTop
   );
