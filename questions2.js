@@ -149,10 +149,10 @@ gotoResult.addEventListener("click", function () {
     if (answerSelected.length !== 0) {
         // Add selected eras to user choice
         for (let index = 0; index < answerSelected.length; index++) {
-            if (answerSelected[index].id === "7.5"|| answerSelected[index].id === "6") {
+            if (answerSelected[index].id === "7"|| answerSelected[index].id === "6") {
                 userAnswers["vote_average.gte"].push(answerSelected[index].id);
             }
-            if (answerSelected[index].id === "5") {
+            if (answerSelected[index].id === "4.9") {
                 userAnswers["vote_average.lte"].push(answerSelected[index].id);
                 userAnswers.page = 1;
             }

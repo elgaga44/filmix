@@ -396,6 +396,7 @@ header {
   text-align: left;
   line-height: normal;
   margin: 0px;
+  margin-bottom: 20px;
 }
 
 #startH2 {
@@ -406,6 +407,7 @@ header {
   text-align: left;
   line-height: normal;
   text-transform: none;
+  margin-bottom: 30px;
 }
 
 .startPage {
@@ -425,7 +427,7 @@ header {
 
 .CTA {
   width: 50%;
-  height: 220px;
+  /* height: 220px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -999,6 +1001,12 @@ header {
     /* background: none; */
   }
 
+  .questionCardLanguage {
+    max-width: 600px;
+    padding: 40px 0px;
+    /* background: none; */
+  }
+
   .questionCardEra {
     max-width: 600px;
     padding: 40px 0px;
@@ -1021,7 +1029,7 @@ header {
   }
 
   .choice {
-    width: 320px;
+    width: 90%;
   }
 
   .card {
