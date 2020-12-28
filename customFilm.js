@@ -36,8 +36,6 @@ const bulb = document.querySelector(".bulb");
 
 const details = document.querySelectorAll(".details");
 
-const menu = document.querySelector(".menu");
-
 // #################################
 // MAIN FEATURE: CHANGE FILM
 // #################################
@@ -52,10 +50,12 @@ change.addEventListener("click", function (){
 // Change film when pressing the space bar
 
 window.addEventListener("keydown", function (e) {
-    switch (e.code) {
-      case "Space":
-        getFilmPage()
-        getFilm();
+    if (background.style.background !== "") {
+        switch (e.code) {
+            case "Space":
+              getFilmPage()
+              getFilm();
+          } 
     }
 });
 

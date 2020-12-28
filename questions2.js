@@ -57,12 +57,14 @@ gotoEra.addEventListener("click", function () {
         questionCard.style.opacity = "0%";
         setTimeout(() => {
             questionCard2.style.display = "Flex";
+            questionCard2.style.opacity = "100%";
             questionCard.style.display = "None";
         }, 250);
 
         // Reset selected answers
         for (let index = 0; index < answerGenre.length; index++) {
-            answerGenre[index].classList.remove("answerSelected");  
+            answerGenre[index].classList.remove("answerSelected");
+            answerGenre[index].firstElementChild.classList.remove("tickOn");
         }
         selectEra();
     } else {
@@ -90,11 +92,13 @@ gotoRating.addEventListener("click", function () {
     setTimeout(() => {
         questionCard2.style.display = "None";
         questionCard3.style.display = "Flex";
+        questionCard3.style.opacity = "100%";
     }, 250);
 
     // Reset selected answers
     for (let index = 0; index < answerEra.length; index++) {
-        answerEra[index].classList.remove("answerSelected");  
+        answerEra[index].classList.remove("answerSelected");
+        answerEra[index].firstElementChild.classList.toggle("tickOn");  
     }
 
     selectRating ()
@@ -136,12 +140,14 @@ gotoResult.addEventListener("click", function () {
             loadingScreen.style.display = "None";
             background.style.opacity = "100%";
             card.style.display = "Flex";
+            card.style.opacity = "100%";
         },2000)
 
 
         // Reset selected answers
         for (let index = 0; index < answerRating.length; index++) {
-            answerRating[index].classList.remove("answerSelected");  
+            answerRating[index].classList.remove("answerSelected");
+            answerRating[index].firstElementChild.classList.toggle("tickOn");  
         } 
     } else {
         alert("Choose at least one answer!");
