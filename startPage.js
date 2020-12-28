@@ -1,11 +1,17 @@
+// ################################################
+// VARIABLES
+// ################################################
+
 const startNow = document.querySelector("#startNow");
 
 const startPage = document.querySelector(".startPage");
 
 const menuPage = document.querySelector(".brand");
 
-
+// ######################
 // Start page at launch
+// ######################
+
 startNow.addEventListener("click", function () {
 
     // Display first question
@@ -21,8 +27,10 @@ startNow.addEventListener("click", function () {
     selectGenres();
 });
 
-
+// ######################
 // Relaunch start page
+// ######################
+
 menuPage.addEventListener("click", function () {
 
     // Reset user answers
@@ -40,7 +48,7 @@ menuPage.addEventListener("click", function () {
     background.style.background = "#202231";
     background.style.filter = "None";
     questionCard.style.opacity = "0%";
-    questionCard2.style.opacity = "0%";
+    questionCardEra.style.opacity = "0%";
     questionCard3.style.opacity = "0%";
     card.style.opacity = "0%";
 
@@ -48,8 +56,8 @@ menuPage.addEventListener("click", function () {
     setTimeout(() => {
         questionCard.style.display = "Flex";
         questionCard.style.opacity = "100%";
-        questionCard2.style.display = "None";
-        questionCard3.style.display = "None";
+        questionCardEra.style.display = "None";
+        questionCardRating.style.display = "None";
         card.style.display = "None";
     }, 250);
 

@@ -35,7 +35,6 @@
       <a class="theme"><i class="material-icons md-12 bulb"> emoji_objects </i></a>
     </header>
     <main class="wrapper">
-      <!-- <div class="startPage">Hello!</div> -->
       <div class="startPage">
         <div class="CTA">
           <h1 id="startH1">Hi, welcome to Filmix.</h1>
@@ -46,15 +45,27 @@
         <div></div>
       </div>
       <div class="questionCard">
-        <div class="question"><h1>Let's start with the genres that you'd like to see.</h1></div>
+        <div class="question"><h1>Let's start with the genre that you'd like to see.</h1></div>
         <div id="answers">
+          <div class="answerGenre choice" id="">🎉 All of them<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerGenre choice" id="99">📰 Documentary<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerGenre choice" id="53">😨 Thriller<i class="material-icons tick">
+            done
+          </i></div>
           <div class="answerGenre choice" id="10749">🌹 Romance<i class="material-icons tick">
             done
           </i></div>
           <div class="answerGenre choice" id="35">🤣 Comedy<i class="material-icons tick">
             done
           </i></div>
-          <div class="answerGenre choice" id="27">👽 Horror<i class="material-icons tick">
+          <div class="answerGenre choice" id="27">👻 Horror<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerGenre choice" id="10751">👩‍👧‍👦 Family<i class="material-icons tick">
             done
           </i></div>
           <div class="answerGenre choice" id="12">🧳 Adventure<i class="material-icons tick">
@@ -63,16 +74,49 @@
           <div class="answerGenre choice" id="18">😢 Drama<i class="material-icons tick">
             done
           </i></div>
-          <div class="answerGenre choice" id="878">🤖 Science-Fiction<i class="material-icons tick">
+          <div class="answerGenre choice" id="878">🤖 Science Fiction<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerGenre choice" id="80">🚓 Crime<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerGenre choice" id="16">🎨 Animation<i class="material-icons tick">
+            done
+          </i></div>
+        </div>
+        <a href="#" id="gotoLanguage" class="next">Next</a>
+      </div>
+      <div class="questionCardLanguage">
+        <div class="question"><h1>What should be the language of origin of this film?</h1></div>
+        <div id="answers">
+          <div class="answerLanguage choice" id="">🌍 All languages<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerLanguage choice" id="en">🇺🇸🇬🇧 English<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerLanguage choice" id="fr">🇫🇷 French<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerLanguage choice" id="es">🇪🇸 Spanish<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerLanguage choice" id="ja">🇯🇵 Japanese<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerLanguage choice" id="ko">🇰🇷 Korean<i class="material-icons tick">
             done
           </i></div>
         </div>
         <a href="#" id="gotoEra" class="next">Next</a>
       </div>
-      <div class="questionCard2">
+      <div class="questionCardEra">
         <div class="question"><h1>Do you want a film from a particular era?</h1></div>
         <div id="answers">
-          <div class="answerEra choice" id="1960">📽 Before 1960<i class="material-icons tick">
+          <div class="answerEra choice" id="allEra">⏳ All eras<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerEra choice" id="1970">📽 Before 1970<i class="material-icons tick">
             done
           </i></div>
           <div class="answerEra choice" id="1999">🎥 Before 2000<i class="material-icons tick">
@@ -81,25 +125,22 @@
           <div class="answerEra choice" id="2000">📹 After 2000<i class="material-icons tick">
             done
           </i></div>
-          <div class="answerEra choice" id="allEra">⏳ All eras<i class="material-icons tick">
-            done
-          </i></div>
         </div>
         <a href="#" id="gotoRating" class="next">Next</a>
       </div>
-      <div class="questionCard3">
+      <div class="questionCardRating">
         <div class="question"><h1>Okay, great. <br> How well should this film be rated?</h1></div>
         <div id="answers">
-          <div class="answerRating choice" id="7.5">🍾 Masterpiece<i class="material-icons tick">
+          <div class="answerRating choice">✅ All films<i class="material-icons tick">
+            done
+          </i></div>
+          <div class="answerRating choice" id="6.7">🍾 Great film<i class="material-icons tick">
             done
           </i></div>
           <div class="answerRating choice" id="6">⭐️ Good film<i class="material-icons tick">
             done
           </i></div>
-          <div class="answerRating choice" id="5">💸 Nanar<i class="material-icons tick">
-            done
-          </i></div>
-          <div class="answerRating choice">✅ All films<i class="material-icons tick">
+          <div class="answerRating choice" id="4.9">💸 Nanar<i class="material-icons tick">
             done
           </i></div>
         </div>
@@ -121,16 +162,21 @@
               <i class="material-icons md-12"> shuffle </i>Another film
             </a>
           </div>
+          <h6>Films matching your criteria: <em class="totalResults">10</em></h6>
         </div>
         <div class="right">
           <div class="filmTitre">
             <h1 class="filmTitle">Blade Runner 2049</h1> 
             <div class="filmInfo">
-              <h4 class="filmDate">2018</h4>
-              <h4 class="dot">•</h4>
-              <h4 class="filmGenre">Science-Fiction, Drama</h4>
-              <h4 class="dot">•</h4>
-              <h4 class="filmLength">2h44</h4>
+              <h4>
+                <em class="filmDate">2018</em>
+                <em class="dot">•</em>
+                <em class="filmGenre">Science-Fiction, Drama</em>
+                <em class="dot">•</em>
+                <em class="filmLength">2h44</em>
+                <em class="dot">•</em>
+                <em class="filmLanguage">US</em>
+              </h4>          
             </div>
             <div class="filmInfo"><h2>Director:</h2><h2 class="filmDirector">Denis Villeneuve</h2></div>
             <div class="filmInfo"><h2>Casting:<em class="filmCasting">Ryan Gosling, Dave Bautista, Robin Wright</em></h2></div>        
@@ -151,9 +197,9 @@
             <div class="ratings_streaming">
               <div class="details filmRatings">
                 <div class="content">
-                  <h3>Ratings</h3>
+                  <h3>Rating</h3>
                   <div class="imdb">
-                    <img src="Images/imdb.svg" alt="IMDB" class="imdbLogo" />
+                    <img src="Images/star.svg" alt="IMDB" class="imdbLogo" />
                     <p class="imdbRating">8/10</p>
                   </div>
                 </div>
@@ -169,7 +215,7 @@
               </div>
             </div>
             <div class="filmTeaser">
-              <iframe class="ytTrailer" width="100%" height="100%" src="https://www.youtube.com/embed/IgtzBbDKbLk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe class="ytTrailer" width="100%" height="100%" src="https://www.youtube.com/embed/gCcx85zbxz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         </div>

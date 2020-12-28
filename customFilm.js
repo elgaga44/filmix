@@ -18,6 +18,8 @@ const genre = document.querySelector(".filmGenre");
 
 const duration = document.querySelector(".filmLength");
 
+const language = document.querySelector(".filmLanguage");
+
 const director = document.querySelector(".filmDirector");
 
 const overview = document.querySelector(".filmOverview");
@@ -59,7 +61,6 @@ window.addEventListener("keydown", function (e) {
     }
 });
 
-
 // #################################
 // Get random page of film results
 // #################################
@@ -95,6 +96,7 @@ function successCB(data) {
     customFilms = JSON.parse(data);
     customFilm = customFilms.results[Math.floor(Math.random() * customFilms.results.length)];
     customFilmTitle = customFilm.title;
+    customFilmLanguage = customFilm.original_language.toUpperCase();
     customFilmOverview = customFilm.overview;
     customFilmID = customFilm.id;
     customFilmVoteAverage = customFilm.vote_average;
@@ -139,6 +141,8 @@ function changeFilm() {
 
         ytTrailer.src = `https://www.youtube.com/embed/${customFilmTrailer}`;
 
+        totalResults.innerHTML = customFilms.total_results;
+
         title.innerHTML = customFilmTitle;
 
         date.innerHTML = customFilmReleaseDate;
@@ -146,6 +150,8 @@ function changeFilm() {
         genre.innerHTML = `${customFilmGenres.join(", ")}`;
 
         duration.innerHTML = customFilmRuntime;
+
+        language.innerHTML = customFilmLanguage;
 
         director.innerHTML = `  ${customFilmDirector}`;
 
@@ -161,7 +167,6 @@ function changeFilm() {
     }, 250);
     
 }
-
 
 // ###########################################
 // SECONDARY FUNCTIONS: GET OTHER FILM DETAILS
@@ -184,13 +189,12 @@ function getFilmDetails() {
             for (let index = 0; index < 2; index++) {
               customFilmGenres.push(filmDetails.genres[index].name);
             };
-
+            // Rename "Science-Fiction" in "SF"
             for (let index = 0; index < customFilmGenres.length; index++) {
                 if (customFilmGenres[index] == "Science Fiction") {
                     customFilmGenres[index] = "SF";
                 }  
             }
-            
         }, 
         // Error callback
         function (data) {
@@ -229,7 +233,6 @@ function getFilmCasting() {
 // FUNCTION: GET FILM TRAILER
 // #####################################
 
-
 function getFilmTrailer() {
       theMovieDb.movies.getVideos({ id: customFilmID },
         function (data) {
@@ -251,7 +254,6 @@ function getFilmTrailer() {
 // OTHER FUNCTIONS
 // #####################################  
   
-
 // #################################
 // Desactivating Scroll with spacebar
 // #################################

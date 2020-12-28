@@ -8,6 +8,8 @@ let answers = document.getElementById("answers");
 
 let answerGenre = document.querySelectorAll(".answerGenre");
 
+let answerLanguage = document.querySelectorAll(".answerLanguage");
+
 let answerEra = document.querySelectorAll(".answerEra");
 
 let answerRating = document.querySelectorAll(".answerRating");
@@ -15,6 +17,8 @@ let answerRating = document.querySelectorAll(".answerRating");
 let tick = document.querySelectorAll(".tick");
 
 let answerSelected = document.getElementsByClassName("answerSelected");
+
+let gotoLanguage = document.getElementById("gotoLanguage");
 
 let gotoEra = document.getElementById("gotoEra");
 
@@ -24,13 +28,17 @@ let gotoResult = document.getElementById("gotoResult");
 
 let questionCard = document.querySelector(".questionCard");
 
-let questionCard2 = document.querySelector(".questionCard2");
+let questionCardLanguage = document.querySelector(".questionCardLanguage");
 
-let questionCard3 = document.querySelector(".questionCard3");
+let questionCardEra = document.querySelector(".questionCardEra");
+
+let questionCardRating = document.querySelector(".questionCardRating");
 
 let loadingScreen = document.querySelector(".loadingScreen");
 
 let card = document.querySelector(".card");
+
+let totalResults = document.querySelector(".totalResults");
 
 let userAnswers = {
     with_genres: [],
@@ -39,25 +47,26 @@ let userAnswers = {
     "vote_average.lte": [],
     "vote_average.gte": [],
     "vote_count.gte": 50,
+    "with_original_language": [],
     "page": []
 }
 
 
-// ##############
-// Genre question
-// ##############
+// ####################
+// Question 1 : Genre
+// ####################
 
-gotoEra.addEventListener("click", function () {
+gotoLanguage.addEventListener("click", function () {
     if (answerSelected.length !== 0) {
         // Add selected genres to user choice
         for (let index = 0; index < answerSelected.length; index++) {
             userAnswers.with_genres.push(answerSelected[index].id);
         };
-        // Ask era question
+        // Ask language question
         questionCard.style.opacity = "0%";
         setTimeout(() => {
-            questionCard2.style.display = "Flex";
-            questionCard2.style.opacity = "100%";
+            questionCardLanguage.style.display = "Flex";
+            questionCardLanguage.style.opacity = "100%";
             questionCard.style.display = "None";
         }, 250);
 
@@ -66,20 +75,48 @@ gotoEra.addEventListener("click", function () {
             answerGenre[index].classList.remove("answerSelected");
             answerGenre[index].firstElementChild.classList.remove("tickOn");
         }
-        selectEra();
+        selectLanguage();
     } else {
         alert("Choose at least one answer!");
     }
 });
 
-// ##############
-// Era question
-// ##############
+// ####################
+// Question 2 : Language
+// ####################
+
+gotoEra.addEventListener("click", function () {
+    // Add selected language to user choice
+    for (let index = 0; index < answerSelected.length; index++) {
+        userAnswers["with_original_language"].push(`${answerSelected[index].id}`);
+    };
+    
+    
+    // Ask era question
+    questionCardLanguage.style.opacity = "0%";
+    setTimeout(() => {
+        questionCardLanguage.style.display = "None";
+        questionCardEra.style.display = "Flex";
+        questionCardEra.style.opacity = "100%";
+    }, 250);
+
+    // Reset selected answers
+    for (let index = 0; index < answerEra.length; index++) {
+        answerLanguage[index].classList.remove("answerSelected");
+        answerLanguage[index].firstElementChild.classList.remove("tickOn");  
+    }
+
+    selectEra();
+});
+
+// ####################
+// Question 3 : Era
+// ####################
 
 gotoRating.addEventListener("click", function () {
     // Add selected eras to user choice
     for (let index = 0; index < answerSelected.length; index++) {
-        if (answerSelected[index].id === "1960"|| answerSelected[index].id === "1999") {
+        if (answerSelected[index].id === "1970"|| answerSelected[index].id === "1999") {
             userAnswers["release_date.lte"].push(`${answerSelected[index].id}-12-31`);
         } 
         if (answerSelected[index].id === "2000") {
@@ -88,25 +125,25 @@ gotoRating.addEventListener("click", function () {
     };
 
     // Ask rating question
-    questionCard2.style.opacity = "0%";
+    questionCardEra.style.opacity = "0%";
     setTimeout(() => {
-        questionCard2.style.display = "None";
-        questionCard3.style.display = "Flex";
-        questionCard3.style.opacity = "100%";
+        questionCardEra.style.display = "None";
+        questionCardRating.style.display = "Flex";
+        questionCardRating.style.opacity = "100%";
     }, 250);
 
     // Reset selected answers
     for (let index = 0; index < answerEra.length; index++) {
         answerEra[index].classList.remove("answerSelected");
-        answerEra[index].firstElementChild.classList.toggle("tickOn");  
+        answerEra[index].firstElementChild.classList.remove("tickOn");  
     }
 
     selectRating ()
 });
 
-// ##############
-// Rating question
-// ##############
+// ####################
+// Question 4 : Rating
+// ####################
 
 gotoResult.addEventListener("click", function () {
     if (answerSelected.length !== 0) {
@@ -121,11 +158,10 @@ gotoResult.addEventListener("click", function () {
             }
         };
 
-
-        // Load film
-            questionCard3.style.opacity = "0%";
+        // Load first film data & remove question card
+            questionCardRating.style.opacity = "0%";
         setTimeout(function () {
-            questionCard3.style.display = "None";
+            questionCardRating.style.display = "None";
             loadingScreen.style.display = "Flex";
             background.style.opacity = "0%";
             // Get film page
@@ -135,7 +171,7 @@ gotoResult.addEventListener("click", function () {
             getFilm();
         },250)
         
-
+        // Display first film
         setTimeout(function () {
             loadingScreen.style.display = "None";
             background.style.opacity = "100%";
@@ -147,12 +183,11 @@ gotoResult.addEventListener("click", function () {
         // Reset selected answers
         for (let index = 0; index < answerRating.length; index++) {
             answerRating[index].classList.remove("answerSelected");
-            answerRating[index].firstElementChild.classList.toggle("tickOn");  
+            answerRating[index].firstElementChild.classList.remove("tickOn");  
         } 
     } else {
         alert("Choose at least one answer!");
-    }
-    
+    }   
 });
 
 
@@ -160,15 +195,38 @@ gotoResult.addEventListener("click", function () {
 // FUNCTIONS
 // ##############
 
+
 function selectGenres () { 
     answerGenre.forEach(answer => {
         answer.addEventListener("click", function () {
-            if (answerSelected.length < 2) {
+            if (answerSelected.length < 1) {
                 answer.classList.toggle("answerSelected");
                 answer.firstElementChild.classList.toggle("tickOn");
             } else {
-                answer.classList.remove("answerSelected");
-                answer.firstElementChild.classList.remove("tickOn");
+                for (let index = 0; index < answerGenre.length; index++) {
+                    answerGenre[index].classList.remove("answerSelected");
+                    answerGenre[index].firstElementChild.classList.remove("tickOn");
+                }
+                answer.classList.toggle("answerSelected");
+                answer.firstElementChild.classList.toggle("tickOn");
+            }
+        });
+    });
+}
+
+function selectLanguage () { 
+    answerLanguage.forEach(answer => {
+        answer.addEventListener("click", function () {
+            if (answerSelected.length < 1) {
+                answer.classList.toggle("answerSelected");
+                answer.firstElementChild.classList.toggle("tickOn");
+            } else {
+                for (let index = 0; index < answerLanguage.length; index++) {
+                    answerLanguage[index].classList.remove("answerSelected");
+                    answerLanguage[index].firstElementChild.classList.remove("tickOn");  
+                }
+                answer.classList.toggle("answerSelected");
+                answer.firstElementChild.classList.toggle("tickOn");
             }
         });
     });
