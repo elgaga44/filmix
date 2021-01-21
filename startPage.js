@@ -34,13 +34,14 @@ startNow.addEventListener("click", function () {
 menuPage.addEventListener("click", function () {
 
     // Reset user answers
-   userAnswers = {
+    userAnswers = {
         with_genres: [],
         "release_date.lte": [],
         "release_date.gte": [],
         "vote_average.lte": [],
         "vote_average.gte": [],
         "vote_count.gte": 50,
+        "with_original_language": [],
         "page": []
     }
 
@@ -48,8 +49,9 @@ menuPage.addEventListener("click", function () {
     background.style.background = "#202231";
     background.style.filter = "None";
     questionCard.style.opacity = "0%";
+    questionCardLanguage.style.opacity = "0%";
     questionCardEra.style.opacity = "0%";
-    questionCard3.style.opacity = "0%";
+    questionCardRating.style.opacity = "0%";
     card.style.opacity = "0%";
 
 
