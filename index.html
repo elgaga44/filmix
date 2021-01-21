@@ -18,6 +18,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <script src="themoviedb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>FILMIX</title>
   </head>
   <body>
@@ -153,7 +154,10 @@
         <!-- <div class="wrapper"> -->
         <div class="left">
           <!-- <img src="" alt="Film Poster" class="posterPic" /> -->
-          <div class="posterPic"></div>
+          <div class="filmPicBadge">
+            <div class="posterPic"></div>
+            <div class="ratingBadge">7,5</div>
+          </div>
           <div class="posterButtons">
             <a href="#" target="_blank" class="filmTrailer">
               <i class="material-icons md-12"> play_circle_outline </i>Trailer
@@ -162,7 +166,7 @@
               <i class="material-icons md-12"> shuffle </i>Another film
             </a>
           </div>
-          <h6>Films matching your criteria: <em class="totalResults">10</em></h6>
+          <h6><em class="totalResults">10</em> Films matching your criteria</h6>
         </div>
         <div class="right">
           <div class="filmTitre">
@@ -194,23 +198,15 @@
             </div>
           </div>
           <div class="filmBonus">
-            <div class="ratings_streaming">
-              <div class="details filmRatings">
-                <div class="content">
-                  <h3>Rating</h3>
-                  <div class="imdb">
-                    <img src="Images/star.svg" alt="IMDB" class="imdbLogo" />
-                    <p class="imdbRating">8/10</p>
-                  </div>
+            <div class="renting_streaming">
+              <div class="details filmRenting">
+                <div class="content" id="rentNow">
+                  <h3>Rent now</h3>
                 </div>
               </div>
               <div class="details filmStreaming">
-                <div class="content">
+                <div class="content" id="streamNow">
                   <h3>Watch now</h3>
-                  <p>Coming soon!</p>
-                  <img src="netflix.jpeg" alt="Netflix" class="svod netflix" />
-                  <img src="disney.jpeg" alt="Disney" class="svod disney" />
-                  <img src="canal.jpeg" alt="Canal" class="svod canal" />
                 </div>
               </div>
             </div>
@@ -224,7 +220,9 @@
     </main>
     <div class="background"></div>
     <!-- <script src="movix.js"></script> -->
+    <script src="variables.js"></script>
+    <script src="api.js"></script>
     <script src="startPage.js"></script>
-    <script src="questions2.js"></script>
-    <script src="customFilm.js"></script>
+    <script src="questions.js"></script>
+    <script src="functions.js"></script>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="questions.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>FILMIX</title>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="Images/logo.png" alt="Filmix logo" class="logo">
+        <div class="menu">FIL<span>MIX</span></div>
+      </div>
+      <input type="search" placeholder="&#8981 Search" class="search" name="search"
+      aria-label="Search through site content">
+      <div class="user">
+        <a href="#" class="login">Login</a>
+        <a href="#" class="signUp">Register</a>
+      </div>
+      <a class="theme"><i class="material-icons md-12 bulb"> emoji_objects </i></a>
+    </header>
+    <main class="wrapper">
+      <div class="loadingScreen">
+        <img src="Images/loading.svg" class="loader" alt="Loading Screen">
+      </div>
+      <main class="card">
+        <!-- <div class="wrapper"> -->
+        <div class="left">
+          <!-- <img src="" alt="Film Poster" class="posterPic" /> -->
+          <div class="filmPicBadge">
+            <div class="posterPic"></div>
+            <div class="ratingBadge">7,5</div>
+          </div>
+          <div class="posterButtons">
+            <a href="#" target="_blank" class="filmTrailer">
+              <i class="material-icons md-12"> play_circle_outline </i>Trailer
+            </a>
+            <a class="anotherFilm">
+              <i class="material-icons md-12"> shuffle </i>Another film
+            </a>
+          </div>
+          <h6>Films matching your criteria: <em class="totalResults">10</em></h6>
+        </div>
+        <div class="right">
+          <div class="filmTitre">
+            <h1 class="filmTitle">Blade Runner 2049</h1> 
+            <div class="filmInfo">
+              <h4>
+                <em class="filmDate">2018</em>
+                <em class="dot">•</em>
+                <em class="filmGenre">Science-Fiction, Drama</em>
+                <em class="dot">•</em>
+                <em class="filmLength">2h44</em>
+                <em class="dot">•</em>
+                <em class="filmLanguage">US</em>
+              </h4>          
+            </div>
+            <div class="filmInfo"><h2>Director:</h2><h2 class="filmDirector">Denis Villeneuve</h2></div>
+            <div class="filmInfo"><h2>Casting:<em class="filmCasting">Ryan Gosling, Dave Bautista, Robin Wright</em></h2></div>        
+          </div>
+          <div class="details">
+            <div class="content">
+              <h3>Overview</h3>
+              <p class="filmOverview">
+                Thirty years after the events of the first film, a new blade
+                runner, LAPD Officer K, unearths a long-buried secret that has the
+                potential to plunge what's left of society into chaos. K's
+                discovery leads him on a quest to find Rick Deckard, a former LAPD
+                blade runner who has been missing for 30 years.
+              </p>
+            </div>
+          </div>
+          <div class="filmBonus">
+            <div class="renting_streaming">
+              <div class="details filmRenting">
+                <div class="content" id="rentNow">
+                  <h3>Rent now</h3>
+                  <img src="Images/netflix.jpeg" alt="Netflix" class="svod netflix" />
+                  <img src="Images/disney.jpeg" alt="Disney" class="svod disney" />
+                  <img src="Images/canal.jpeg" alt="Canal" class="svod canal" />
+                </div>
+              </div>
+              <div class="details filmStreaming">
+                <div class="content" id="streamNow">
+                  <h3>Watch now</h3>
+                  <img src="Images/netflix.jpeg" alt="Netflix" class="svod netflix" />
+                  <img src="Images/disney.jpeg" alt="Disney" class="svod disney" />
+                  <img src="Images/canal.jpeg" alt="Canal" class="svod canal" />
+                </div>
+              </div>
+            </div>
+            <div class="filmTeaser">
+              <iframe class="ytTrailer" width="100%" height="100%" src="https://www.youtube.com/embed/gCcx85zbxz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </main>
+    </main>
+    <div class="background"></div>
+    <script src="variables.js"></script>
+    <!-- <script src="startPage.js"></script>
+    <script src="questions.js"></script> -->
+    <script src="functions.js"></script>
+    <script src="api.js"></script>
+    <script src="launch.js"></script>
+</html>

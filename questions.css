@@ -665,7 +665,7 @@ header {
   align-items: flex-start;
   justify-content: space-evenly;
   min-height: 600px;
-  width: 1000px;
+  width: 1100px;
   /* background: black; */
   border-radius: 25px;
   text-align: center;
@@ -675,6 +675,7 @@ header {
   transition: 0.25s ease-in-out;
   animation: fadein;
   animation-duration: 1s;
+  /* margin-bottom: 20px; */
 }
 
 @keyframes fadein {
@@ -711,13 +712,18 @@ header {
 
 .left {
   /* height: 90%; */
-  width: 35%;
+  /* width: 35%; */
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin-right: 15px;
   transition: 0.25s ease-in-out;
+}
+
+.filmPicBadge {
+  width: 300px;
+  position: relative;
 }
 
 .posterPic {
@@ -733,6 +739,38 @@ header {
   margin-bottom: 30px;
   transition: 0.25s ease-in-out;
   transition-delay: 200ms;
+}
+
+.ratingBadge {
+  background-color: #66c566;
+  position: absolute;
+  bottom: 20px;
+  right: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(7deg);
+  font-size: 20px;
+  font-weight: 900;
+  transition: 0.25s ease-in-out;
+}
+
+.spin {
+  animation: spin;
+  animation-duration: 0.25s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* .posterPic:hover {
@@ -752,7 +790,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .filmTrailer {
@@ -811,12 +849,21 @@ header {
   margin-right: 5px;
 }
 
+em.totalResults {
+  background: white;
+  padding: 6px 8px;
+  color: black;
+  border-radius: 7px;
+  margin-right: 3px;
+  font-weight: 800;
+}
+
 /* ################## */
 /* Right part */
 /* ################## */
 
 .right {
-  width: 60%;
+  width: 65%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -849,7 +896,7 @@ header {
 
 .content {
   padding: 20px;
-  max-height: 120px;
+  /* min-height: 70px; */
   transition: 0.25s ease;
 }
 
@@ -902,16 +949,17 @@ header {
   border-radius: 15px;
 }
 
-.ratings_streaming {
+.renting_streaming {
   width: 42%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.filmRatings {
+.filmRenting {
   border-radius: 10px;
   width: 100%;
+  min-height: 110px;
   margin-bottom: 20px;
 }
 
@@ -935,14 +983,15 @@ header {
 .filmStreaming {
   border-radius: 10px;
   width: 100%;
+  min-height: 110px;
   margin-bottom: 0px;
 }
 
-.svod {
-  display: none;
+.svod,
+.rent {
   height: 35px;
-  margin-right: 5px;
-  border-radius: 10px;
+  margin-right: 10px;
+  border-radius: 7px;
 }
 
 @media only screen and (max-width: 850px) {
@@ -1069,14 +1118,14 @@ header {
     width: 100%;
   }
 
-  .ratings_streaming {
+  .renting_streaming {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .filmRatings {
+  .filmRenting {
     border-radius: 10px;
     width: 48%;
     margin-bottom: 20px;
